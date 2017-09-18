@@ -1,28 +1,40 @@
-var apiKey = require('./../.env').apiKey;
 var ApplicationModule = require('./../js/doctor.js').applicationModule;
+// var apiKey = require('./../.env').apiKey;
+
+let displayResults = function(response){
+  let eachDoctor = 0;
+  let doctorData = response.data;
+  if (response.meta.count ===0){
+    $('#solutions').append("The medical concern query returned empty. Please revise your query and try again.");
+  }else {
+    for (let eachDoctor in doctorData) {
+      let nameFirst=doctorData[eachDoctor].profile.first_name;
+      let nameLast=doctorData[eachDoctor].profile.last_name;
+      let title=doctorData[eachDoctor].profile.title;
+      let street;
+      let city;
+      let state;
+      let practiceIndex=0;
+      let practiceData=doctorData[practiceIndex].practices;
+      for(let practiceIndex in practiceData){
+        street=practiceData[practiceIndex].visit_address.street;
+        city=practiceData[practiceIndex].visit_address.city;
+        state=practiceData[practiceIndex].visit_address.state;
+      }
+      $('#solutions').append(`<li>${nameFirst} ${nameLast}, ${title} <br> Address: ${street} &nbsp ${city}, ${state}</li>`);
+      eachDoctor++;
+    }
+    $("#doctor-form").unbind('submit');
+  }
+};
+
+
 
 $(document).ready(function(){
-  var applicationModule = new ApplicationModule();
-  $("#doctor-form").click(function(event){
+  $("#doctor-form").submit(function(event){
+    var applicationModule = new ApplicationModule();
     event.preventDefault();
-
-    let inputName = $("#name").val();
-
-    $.ajax({
-      url: 'https://api.betterdoctor.com/2016-03-01/doctors?name=${inputName}&location=or-portland&user_location=45.514931%2C-122.679109&skip=0&limit=10&user_key=${apiKey}',
-      type: 'GET',
-      data: {
-        format: 'json'
-      },
-      success: function(results){
-        $('ul#solutions').append(`<li>Name: ${results.practices.name}</li>`);
-
-      },
-      error: function(){
-        $('.errors').text("There was an error processing your request. Please try again.")
-      }
-    });
-
-
+    let inputConcern = $("#concern").val();
+    applicationModule.getConcern(inputConcern, displayResults);
   });
 });

@@ -10,10 +10,12 @@ _Achoo! As we all know, everybody needs to see a doctor sometimes. But finding a
 
 ## Setup/Installation Requirements
 
-* _Access TeamTracker repository at "https://github.com/paulguevarra/myapione.git"_
+* _Access doctorserch repository at "https://github.com/paulguevarra/doctorserch.git"_
 * _Clone repository into computer_
+* _Obtain API Key at "https://developer.betterdoctor.com/ "_
+* _Create .env file_
+* _Enter API key in .env file_
 * _Run application._
-* _Enter local address "0.0.0.0:4567" to POSTMAN_
 * _Browse through content_
 
 ##Specs "it can..."
@@ -27,7 +29,7 @@ _Achoo! As we all know, everybody needs to see a doctor sometimes. But finding a
 | notify if search query returned empty |  Dr Zaius  | none found |
 
 ## Known bugs
-_some methods not yet added to application defined in Dao_
+_methods to retrieve further details such as acceptance of new patients and phone number have not yet been created_
 
 ## Support and contact details
 
@@ -40,7 +42,6 @@ _For further issues or questions, please contact: Paul Guevarra email: p.a.gueva
 * _JSON_
 * _Jasmine_
 * _Node.js_
-* _POSTMAN_
 * _Bower_
 
 ### License

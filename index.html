@@ -2,17 +2,42 @@
 <html>
   <head>
     <link rel="stylesheet" href="build/css/vendor.css">
-   <script src="build/js/vendor.min.js"></script>
-   <script type="text/javascript" src="build/js/app.js"></script>
+    <script src="build/js/vendor.min.js"></script>
+    <script type="text/javascript" src="build/js/app.js"></script>
+    <link rel="stylesheet" href="css/main.css" type="text/css">
     <title>Doctor API</title>
   </head>
   <body>
-    <h1>Doctor</h1>
-    <form id="doctor-form">
-      <input type="text" name="concern" id="concern" placeholder="Enter Search Item Here">
-      <button type="submit" id="doctor"name="button">Enter</button>
-    </form>
-    <h3>Results:</h3>
-    <ul id="solutions"></ul>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 well">
+          <h1>Doctor Search</h1>
+        </div>
+      </div>
+      <div id="formsheet">
+        <div class="row">
+          <div class="col-md-6 well">
+            <form id="doctor-form">
+              <input type="text" name="concern" id="concern" placeholder="Enter Search Item Here">
+              <button type="submit" id="doctor"name="button">Enter</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div id="resultsdisplay">
+        <div class="row">
+          <div class="col-md-6 well">
+            <h3>Results:</h3>
+            <ul id="solutions"></ul>
+          </div>
+          <div class="row">
+            <div class="col-md-3 well">
+              <p>Want to try another search? Click on the button below to search again.</p>
+              <button class="btn btn-danger" onclick=location=URL>New Search</button>
+            </div>            
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

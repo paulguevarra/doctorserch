@@ -24,7 +24,6 @@ let displayResults = function(response){
       $('#solutions').append(`<li>${nameFirst} ${nameLast}, ${title} <br> Address: ${street} &nbsp ${city}, ${state}</li>`);
       eachDoctor++;
     }
-    $("#doctor-form").unbind('submit');
   }
 };
 
@@ -36,5 +35,7 @@ $(document).ready(function(){
     event.preventDefault();
     let inputConcern = $("#concern").val();
     applicationModule.getConcern(inputConcern, displayResults);
+    $('#formsheet').hide();
+    $('#resultsdisplay').show();
   });
 });

@@ -9,19 +9,27 @@ let displayResults = function(response){
   }else {
     for (let eachDoctor in doctorData) {
       let nameFirst=doctorData[eachDoctor].profile.first_name;
+      let nameMiddle=doctorData[eachDoctor].profile.middle_name;
       let nameLast=doctorData[eachDoctor].profile.last_name;
       let title=doctorData[eachDoctor].profile.title;
       let street;
       let city;
       let state;
+      let accepting;
       let practiceIndex=0;
       let practiceData=doctorData[practiceIndex].practices;
       for(let practiceIndex in practiceData){
         street=practiceData[practiceIndex].visit_address.street;
         city=practiceData[practiceIndex].visit_address.city;
         state=practiceData[practiceIndex].visit_address.state;
+        accepting=practiceData[practiceIndex].accepts_new_patients;
+        if(accepting===true){
+          accepting="Yes";
+        }else {
+          accepting="No";
+        }
       }
-      $('#solutions').append(`<li>${nameFirst} ${nameLast}, ${title} <br> Address: ${street} &nbsp ${city}, ${state}</li>`);
+      $('#solutions').append(`<div class="col-md-10 well">${nameFirst} ${nameMiddle} ${nameLast}, ${title} <br> Address: ${street} &nbsp ${city}, ${state} <br> Accepting new patients: ${accepting} </div>`);
       eachDoctor++;
     }
   }

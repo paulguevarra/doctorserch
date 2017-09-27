@@ -14,19 +14,25 @@ _Achoo! As we all know, everybody needs to see a doctor sometimes. But finding a
 * _Clone repository into computer_
 * _Obtain API Key at "https://developer.betterdoctor.com/ "_
 * _Create .env file_
-* _Enter API key in .env file_
-* _Run application._
+* _Enter inside env file: exports.apiKey = "your API Key"_
+* _"npm install" in terminal command line_
+* _"bower install" in terminal command line_
+* _"gulp build" in terminal command line_
+* _"gulp serve" in terminal command line_
 * _Browse through content_
 
 ##Specs "it can..."
 
 | Description                                        | Input                                       | Output              |
 | -------------------------------------------------- | -------------------------------------------:| ------------------: |
-| return list of doctors that can help with medical issue | rash | list of doctors |
-| return list of doctors by name  | Dr Johnson | list all doctors with last name Johnson |
-| retrieve all information about each doctor | Dr Johnson | first name, last name, address, phone #, website, if accepting new patients |
+| return list of doctors by name  | Johnson | list all doctors with name Johnson |
+| retrieve all information about each doctor | Dr Johnson | first name, last name, address, phone #, if accepting new patients |
 | notify if an error has occurred | error  | there was an error  |
 | notify if search query returned empty |  Dr Zaius  | none found |
+
+![alt text](img/search-page.png "Search Page")
+![alt text](img/query-display.png "Search Page")
+![alt text](img/query-empty.png "Search Page")
 
 ## Known bugs
 _methods to retrieve further details such as acceptance of new patients and phone number have not yet been created_

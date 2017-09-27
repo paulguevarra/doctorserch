@@ -12,7 +12,7 @@ let displayResults = function(response){
       let nameMiddle=doctorData[eachDoctor].profile.middle_name;
       let nameLast=doctorData[eachDoctor].profile.last_name;
       let title=doctorData[eachDoctor].profile.title;
-      let picture=doctorData[eachDoctor].profile.image_url;
+      // let picture=doctorData[eachDoctor].profile.image_url;
       let street;
       let city;
       let state;
@@ -31,16 +31,16 @@ let displayResults = function(response){
         }else {
           accepting="No";
         }
+        practiceIndex++;
+      }
         let phoneIndex=0;
         let phoneData=practiceData[practiceIndex].phones;
         for(let phoneIndex in phoneData){
           phoneNumDoc=phoneData[phoneIndex].number;
           phoneTypeDoc=phoneData[phoneIndex].type;
-          // phoneIndex++;
+          phoneIndex++;
         }
-        practiceIndex++;
-      }
-      $('#solutions').append(`<div class="col-md-10 well">${nameFirst} ${nameMiddle} ${nameLast}, ${title} <br> Address: ${street} &nbsp ${city}, ${state} <br> Accepting new patients: ${accepting}<br> ${phoneTypeDoc}: ${phoneNumDoc} <br> <img src='${picture}'> </div>`);
+      $('#solutions').append(`<div class="col-md-10 well">${nameFirst} ${nameMiddle} ${nameLast}, ${title} <br> Address: ${street} &nbsp ${city}, ${state} <br> Accepting new patients: ${accepting}<br> ${phoneTypeDoc}: ${phoneNumDoc} </div>`);
       eachDoctor++;
     }
   }

@@ -10,7 +10,7 @@
   margin-right: 30px;
   margin-top: 20px;
   background-color: white;
-  text-align: center;
+  text-align: left;
   opacity: 0.8;
 }
 
@@ -18,9 +18,10 @@ h1 {
   text-align: center;
 }
 body {
-  background: url("/img/background.jpg");
+  /*background: url("/img/background.jpg");*/
   background-size: cover;
   background-attachment: fixed;
   color: black;
   background-repeat: no-repeat;
+  background-color: grey;
 }
